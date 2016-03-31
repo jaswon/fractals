@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>
+            moar fractals
+        </title>
+        <style media="screen">
+            body, html, canvas {
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                background-color: black;
+            }
+            div.canvasContainer {
+                margin: 0 auto;
+                width: 100vh;
+                height: 100vh;
+            }
+            div.options {
+                background-color: grey;
+                padding: 10px;
+                margin: 10px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            #speed {
+                width: 50%;
+            }
+            table {
+                width: auto;
+            }
+            td {
+                width: auto;
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <script src="l.js"></script>
+    <body>
+        <div class="canvasContainer">
+            <canvas id="main"></canvas>
+        </div>
+        <div class="options">
+            <table>
+                <tr>
+                    <td>fractal:</td>
+                    <td><select id="fractalselect" onchange="updateIters(this.value)"></select><br></td>
+                </tr>
+                <tr>
+                    <td>iterations:</td>
+                    <td><select id="iterations"></select><br></td>
+                </tr>
+                <tr>
+                    <td>speed:</td>
+                    <td>
+                        <button id="decr10" onclick="speed.innerHTML=Math.min(Math.max(1,parseInt(speed.innerHTML)-10),200)">-10</button>
+                        <button id="decr1" onclick="speed.innerHTML=Math.min(Math.max(1,parseInt(speed.innerHTML)-1),200)">-1</button>
+                        <span id="speed">100</span>
+                        <button id="incr1" onclick="speed.innerHTML=Math.min(Math.max(1,parseInt(speed.innerHTML)+1),200)">+1</button>
+                        <button id="incr10" onclick="speed.innerHTML=Math.min(Math.max(1,parseInt(speed.innerHTML)+10),200)">+10</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>thick?</td>
+                    <td>
+                        <input type="checkbox" id="thick" checked>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="go" onclick="changeFractal(fractalselect.value, speed.innerHTML, thick.checked,iterations.value);">Go</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
