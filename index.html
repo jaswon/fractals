@@ -1,12 +1,50 @@
 <html>
     <head>
-        <title>moar fractals</title>
+        <title>more fractals</title>
         <style media="screen">
-          #main { border: solid 1px black; }
+          body,html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+          }
+          #controls {
+            margin: 16px;
+            flex: 0 0 auto;
+            display:flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            border-radius: 4px;
+            background-color: #ccc;
+          }
+          canvas { flex-grow: 1; }
+          #controls > * { display: block; margin: 16px; }
+          input[type="number"] { width: 5em; }
         </style>
     </head>
     <body>
-      <canvas id="main" width='500' height='500'></canvas>
+      <div id="controls">
+        <label>
+          Number of iterations:
+          <input id="it" type="number" step="1" min="1" value="5">
+        </label>
+        <label>
+          Speed of animation:
+          <input id="speed" type="number" step="1" min="1" value="10">
+        </label>
+        <label>
+          Fractal:
+          <select id="fractal"></select>
+        </label>
+        <button id="submit">Draw Fractal</button>
+      </div>
+      <canvas id="main"></canvas>
       <script src="math.min.js"></script>
       <script src="fractals.js"></script>
       <script src="l.js"></script>

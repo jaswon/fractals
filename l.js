@@ -8,7 +8,10 @@ function* l(instruction, rules, iterations) {
 
 const cvs = document.querySelector("canvas#main")
 const ctx = cvs.getContext("2d")
-ctx.imageSmoothingEnabled = false;
+
+var s = Math.min(window.innerHeight,window.innerWidth)*.8
+cvs.width = s
+cvs.height = s
 
 class Turtle {
   constructor (ctx,origin,s, totseg) {
@@ -52,7 +55,7 @@ function calcDim (matarr, fintransform, it) {
 
 var curdraw = null;
 
-function drawFractal (fractal, it, showRadius = false, speed = 3000) {
+function drawFractal (fractal, it, speed = 3000, showRadius = false) {
   if (fractal in fractals) var fractal = fractals[fractal]
   else return
   if (curdraw) cancelAnimationFrame(curdraw)
@@ -81,7 +84,17 @@ function drawFractal (fractal, it, showRadius = false, speed = 3000) {
   draw()
 }
 
-function setCanvasSize (s) {
-  cvs.width = s
-  cvs.height = s
+var dropdown = document.querySelector("#fractal")
+for (let name in fractals) {
+  var option = document.createElement("option")
+  option.setAttribute("value",name)
+  option.innerHTML = name
+  dropdown.appendChild(option)
+}
+
+document.querySelector("#submit").onclick = function (e) {
+  var fractal = document.querySelector("#fractal").value
+  var it = document.querySelector("#it").value
+  var speed = document.querySelector("#speed").value
+  drawFractal(fractal,it,speed)
 }

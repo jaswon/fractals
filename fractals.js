@@ -1,7 +1,7 @@
 const sqrt3 = Math.sqrt(3)
 
 var fractals = {
-    hilbert: ["A",{
+    "Hilbert": ["A",{
         "A":"-BF+AFA+FB-",
         "B":"+AF-BFB-FA+"
     },{
@@ -21,7 +21,7 @@ var fractals = {
       [.5,0],
       [.5,-.5]
     ], i => Math.pow(4,i)],
-    peano: ["F",{
+    "Peano": ["F",{
         "F": "F+F-F-F-F+F+F+F-F"
     },{
         "F": function(t) {
@@ -40,7 +40,7 @@ var fractals = {
       [.5,0],
       [0,.5]
     ], i => Math.pow(9,i)],
-    arrowhead: ["A",{
+    "Arrowhead": ["A",{
         "A":"+B-A-B+",
         "B":"-A+B+A-"
     },{
@@ -63,7 +63,7 @@ var fractals = {
       [.5,sqrt3/4],
       [-sqrt3/4,.5]
     ], i => Math.pow(3,i)],
-    dragon: ["FX",{
+    "Dragon": ["FX",{
         "X":"X+YF+",
         "Y":"-FX-Y"
     },{
@@ -83,7 +83,7 @@ var fractals = {
       [.3,-.1],
       [0,.3]
     ], i=>Math.pow(2,i)],
-    twindragon: ["FX+FX+",{
+    "Twin Dragon": ["FX+FX+",{
         "X":"X+YF",
         "Y":"FX-Y"
     },{
@@ -103,7 +103,7 @@ var fractals = {
       [.3,0],
       [0,.3]
     ], i => Math.pow(2,i)],
-    terdragon: ["F",{
+    "Terdragon": ["F",{
         "F":"F+F-F"
     },{
         "F": function(t) {
@@ -122,7 +122,7 @@ var fractals = {
       [.5,0],
       [0,.5]
     ], i => Math.pow(3,i) ],
-    koch: ["F++F++F",{
+    "Koch Snowflake": ["F++F++F",{
         "F":"F-F++F-F"
     },{
         "F": function(t) {
@@ -141,7 +141,7 @@ var fractals = {
       [1/2, 1/4],
       [-1/4, 1/2]
     ], i => Math.pow(4,i)*3 ],
-    gosper: ["FX",{
+    "Gosper": ["FX",{
         "X":"X+YF++YF-FX--FXFX-YF+",
         "Y":"-FX+YFYF++YF+FX--FX-Y"
     },{
@@ -161,7 +161,7 @@ var fractals = {
       [.5,.29],
       [-.29,.5]
     ], i => Math.pow(7,i)],
-    sierpinski: ["X",{
+    "Sierpinski Triangle": ["X",{
         "X":"--FXF++FXF++FXF--",
         "F":"FF"
     },{
